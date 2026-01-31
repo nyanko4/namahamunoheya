@@ -8,6 +8,7 @@
     "axios": "latest",
     "crypto": "^1.0.1",
     "luxon": "^3.7.1",
+    "@supabase/supabase-js": "^2.80.0"
   },
   "scripts": {
     "start": "node server.js"
