@@ -1,5 +1,4 @@
 const { readmessage, deleteMessages, sendchatwork } = require("../ctr/message");
-const { blockMember } = require("../ctr/filter");
 const { isUserAdmin } = require("../ctr/cwdata");
 
 
@@ -20,11 +19,6 @@ async function mentionWebhook(req, res) {
     await deleteMessages(body, messageId, roomId, accountId);
     return res.sendStatus(200);
   }
-  
-  if (!body.match(/\[toall\]/g)) return;
-  
-  const isAdmin = await isUserAdmin(accountId, roomId);
-  if (!isAdmin) return blockMember(roomId, accountId, "toall");
   
   return "ok";
 }
