@@ -18,3 +18,8 @@ async function bomb(body, messageId, roomId, accountId) {
     }
   }
 }
+
+module.exports = {
+  bomb,
+  status,
+}
