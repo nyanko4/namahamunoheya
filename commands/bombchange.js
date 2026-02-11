@@ -5,4 +5,4 @@ async function bombchange(body, messageId, roomId, messageId) {
   return status.gakusei = true;
 }
 
-module.exports = bobmchange;
+module.exports = bombchange;
