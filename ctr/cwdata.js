@@ -1,4 +1,3 @@
-
 const axios = require("axios");
 
 const CHATWORK_API_TOKEN = process.env.CWapitoken;
@@ -26,6 +25,4 @@ async function isUserAdmin(accountId, roomId) {
   }
 }
 
-module.exports = {
-  isUserAdmin,
-};
+module.exports = isUserAdmin;
