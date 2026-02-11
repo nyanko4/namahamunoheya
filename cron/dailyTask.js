@@ -1,6 +1,7 @@
 const { CronJob } = require("cron");
 const { DateTime } = require("luxon");
 const { sendchatwork } = require("../ctr/message");
+const { status } = require("../module/bomb");
 const supabase = require("../supabase/client");
 const sayHello = require("../module/sayHello");
 
@@ -9,6 +10,7 @@ function startDailyTask() {
     "0 0 0 * * *",
     async () => {
       await supabase.from("omikuji").delete().neq("account_id", 0)
+      status.max = 0;
     },
     null,
     true,
