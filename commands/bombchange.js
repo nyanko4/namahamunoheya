@@ -1,6 +1,6 @@
 const { status } = require("../module/bomb");
 const { sendchatwork } = require("../ctr/message");
-const { isUserAdmin } = require("../ctr/cwdata");
+const isUserAdmin = require("../ctr/cwdata");
 
 async function bombchange(body, messageId, roomId, accountId) {
   const isAdmin = isUserAdmin(accountId, roomId);
