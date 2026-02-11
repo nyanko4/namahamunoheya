@@ -14,7 +14,7 @@ async function bomb(body, messageId, roomId, accountId) {
   function bombcomment(probability) {
     const random = Math.random() * 100;
     if (random <= probability) {
-      sendchatwork(`[rp aid=${accountId} to=${roomId}-${messageId}][pname:${accountId}]さん\nどかーん`);
+      sendchatwork(`[rp aid=${accountId} to=${roomId}-${messageId}][pname:${accountId}]さん\nどかーん`, roomId);
     }
   }
 }
