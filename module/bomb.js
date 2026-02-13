@@ -1,15 +1,12 @@
 const { sendchatwork } = require("../ctr/message");
 const status = {
-  max: 0,
   gakusei: false
 }
 const gakusei = 9553691;
 
 async function bomb(body, messageId, roomId, accountId) {
-  if (status.gakusei && accountId == gakusei) return bombcomment(30);
-  if (status.max > 4) return;
-  bombcomment(0.5);
-  status.max += 1;
+  const probability = (status.gakusei && accountId == gakusei) ? 30 : 0.5;
+  bombcomment(probability);
 
   function bombcomment(probability) {
     const random = Math.random() * 100;
