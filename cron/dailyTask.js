@@ -10,7 +10,6 @@ function startDailyTask() {
     "0 0 0 * * *",
     async () => {
       await supabase.from("omikuji").delete().neq("account_id", 0)
-      status.max = 0;
     },
     null,
     true,
