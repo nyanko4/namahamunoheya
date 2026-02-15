@@ -1,5 +1,6 @@
 const commands = {
-  gakusei: require("../commands/bombchange"),
+  gakusei: require("../commands/gakuseiChange"),
+  yuyuyu: require("../commands/yuyuyuChange"),
 };
 
 async function command(body, messageId, roomId, accountId) {
