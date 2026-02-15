@@ -1,11 +1,14 @@
 const { sendchatwork } = require("../ctr/message");
 const status = {
-  gakusei: false
+  gakusei: false,
+  yuyuyu: false
 }
 const gakusei = 9553691;
+const yuyuyu = 10911090;
 
 async function bomb(body, messageId, roomId, accountId) {
-  const probability = (status.gakusei && accountId == gakusei) ? 30 : 0.5;
+  const probability = (status.gakusei && accountId == gakusei) ? 50 : (status.yuyuyu && accountId == yuyuyu) ? 25 : 0.5;
+  
   bombcomment(probability);
 
   function bombcomment(probability) {
