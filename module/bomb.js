@@ -8,7 +8,7 @@ const gakusei = 9553691;
 const yuyuyu = 10911090;
 
 async function bomb(body, messageId, roomId, accountId) {
-  if (!jirai) return;
+  if (!status.jirai) return;
   const probability = (status.gakusei && accountId == gakusei) ? 50 : (status.yuyuyu && accountId == yuyuyu) ? 25 : 0.5;
   
   bombcomment(probability);
