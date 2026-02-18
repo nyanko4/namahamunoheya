@@ -1,4 +1,5 @@
 const commands = {
+  jirai: require("../commands/bombChange"),
   gakusei: require("../commands/gakuseiChange"),
   yuyuyu: require("../commands/yuyuyuChange"),
 };
