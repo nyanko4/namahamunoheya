@@ -13,7 +13,7 @@ export async function mentionWebhook(req, res) {
     message_id: messageId,
   } = req.body.webhook_event;
   
-  await readmessage(roomId, messageId);
+  await readMessage(roomId, messageId);
   
   if (body.includes("削除")) {
     const isAdmin = await isUserAdmin(accountId, roomId);
