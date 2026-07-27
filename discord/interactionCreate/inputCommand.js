@@ -1,7 +1,7 @@
 // slashCommandを制御する関数
 
 import { MessageFlags } from "discord.js";
-import { omikuji, requestBotFunction } from "../modules/commands.js";
+import { omikuji, changeNickname, requestBotFunction } from "../modules/commands.js";
 
 export async function handleInputCommand(interaction) {
   let result = "";
@@ -13,6 +13,11 @@ export async function handleInputCommand(interaction) {
   if (interaction.commandName == "おみくじ") {
     result = await omikuji(interaction, "discord");
   }
+
+  if (interaction.commandName == "nickname") {
+    result = await changeNickname(interaction);
+  }
+  
   if (interaction.commandName == "要望") {
     result = await requestBotFunction(interaction);
   }
