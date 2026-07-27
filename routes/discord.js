@@ -14,6 +14,11 @@ const slashCommands = [
   new SlashCommandBuilder()
     .setName("nickname")
     .setDescription("ニックネームを変更")
+    .addUserOption(option =>
+      option
+      .setName('target')
+      .setDescription('ニックネームを変更する対象')
+      .setRequired(true))
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   new SlashCommandBuilder()
     .setName("要望")
