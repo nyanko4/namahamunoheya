@@ -12,6 +12,10 @@ const slashCommands = [
     .setName("おみくじ")
     .setDescription("おみくじ"),
   new SlashCommandBuilder()
+    .setName("nickname")
+    .setDescription("ニックネームを変更")
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+  new SlashCommandBuilder()
     .setName("要望")
     .setDescription("botの機能について要望できます")
     .addSubcommand((subcommand) =>
