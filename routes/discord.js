@@ -2,6 +2,7 @@ import {
   REST,
   Routes,
   SlashCommandBuilder,
+  PermissionFlagsBits,
   Events,
 } from "discord.js";
 
