@@ -4,7 +4,7 @@ export async function changeNickname(interaction) {
   const changeNickname = interaction.options.getString("change-nickname");
 
   if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) {
-    return message.channel.send('ニックネームを変更する権限がありません。');
+    return "ニックネームを変更する権限がありません";
   }
 
   target.setNickname(changeNickname);
