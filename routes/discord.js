@@ -50,7 +50,7 @@ const slashCommands = [
           .addStringOption((option) =>
             option
               .setName("function-info")
-              .setDescription("機能の追加/改善案を書いてください")))
+              .setDescription("機能の追加/改善案を書いてください"))),
   new SlashCommandBuilder()
     .setName("create-emoji")
     .setDescription("絵文字を作成")
