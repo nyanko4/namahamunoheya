@@ -1,0 +1,24 @@
+const stampContentType = ["png", "gif"];
+
+export async function createStamp(interaction) {
+  const stampImage = interaction.options.getAttachment("stamp-image");
+  const stampName = interaction.options.getString('stamp-name');
+
+	if (!stampImage.contentType.toLowerCase().includes(stampContentType)) {
+		return "画像形式はpng,gifのみ使用可能です";
+  };
+
+  const stampUrl = stampImage.attachment;
+
+  if (!/[\w]+/g.test(stampName)) {
+    return "スタンプの名前は英数字と_のみ使用可能です";
+  };
+
+  await interaction.guild.stickers.create({
+    file: stampUrl,
+    name: stampName,
+    tags: "bot"
+  });
+
+  return "作成しました";
+}
