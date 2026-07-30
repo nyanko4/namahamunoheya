@@ -1,7 +1,7 @@
 // slashCommandを制御する関数
 
 import { MessageFlags } from "discord.js";
-import { omikuji, changeNickname, requestBotFunction } from "../modules/commands.js";
+import { omikuji, changeNickname, requestBotFunction, createEmoji, createStamp } from "../modules/commands.js";
 
 export async function handleInputCommand(interaction) {
   let result = "";
@@ -20,6 +20,14 @@ export async function handleInputCommand(interaction) {
   
   if (interaction.commandName == "要望") {
     result = await requestBotFunction(interaction);
+  }
+
+  if (interaction.commandName == "create-emoji") {
+    result = await createEmoji(interaction);
+  }
+
+  if (interaction.commandName == "create-stamp") {
+    result = await createStamp(interaction);
   }
   
   await interaction.editReply({ content: result });
