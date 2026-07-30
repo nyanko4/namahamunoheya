@@ -3,3 +3,5 @@ export { debug } from "../commands/debug.js";
 export { executeCommand } from "../executeCommand.js";
 export { changeNickname } from "../commands/changeNickname.js";
 export { requestBotFunction } from "../commands/requestBotFunction.js";
+export { createEmoji } from "../commands/createEmoji.js";
+export { createStamp } from "../commands/createStamp.js";
