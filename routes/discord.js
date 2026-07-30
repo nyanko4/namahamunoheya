@@ -51,6 +51,32 @@ const slashCommands = [
             option
               .setName("function-info")
               .setDescription("機能の追加/改善案を書いてください")))
+  new SlashCommandBuilder()
+    .setName("create-emoji")
+    .setDescription("絵文字を作成")
+    .addAttachmentOption((option) => 
+      option
+        .setName("emoji-image")
+        .setDescription("作成する絵文字の画像")
+        .setRequired(true))
+    .addStringOption((option) =>
+      option
+        .setName("emoji-name")
+        .setDescription('作成する絵文字の名前')
+        .setRequired(true)),
+  new SlashCommandBuilder()
+    .setName("create-stamp")
+    .setDescription("スタンプを作成")
+    .addAttachmentOption((option) => 
+      option
+        .setName("stamp-image")
+        .setDescription('作成するスタンプの画像')
+        .setRequired(true))
+    .addStringOption((option) =>
+      option
+        .setName("stamp-name")
+        .setDescription("作成するスタンプの名前")
+        .setRequired(true))
 ].map(cmd => cmd.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_APITOKEN);
