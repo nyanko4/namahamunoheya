@@ -76,7 +76,7 @@ const slashCommands = [
       option
         .setName("stamp-name")
         .setDescription("作成するスタンプの名前")
-        .setRequired(true))
+        .setRequired(true)),
   new SlashCommandBuilder()
     .setName("捏造")
     .setDescription("ログを捏造")
