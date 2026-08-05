@@ -11,6 +11,12 @@ export async function logger(message, oldMessage = null, type = "create") {
 
   const channel = client.channels.cache.get(LOG_ROOM_ID);
 
+  console.log(
+    message,
+    oldMessage,
+    type,
+    message.embeds[0]
+    )
   if (type === "delete" && message.embeds.length > 0) {
     await channel.send({
       embeds: message.embeds,
