@@ -10,7 +10,7 @@ export async function logger(message, oldMessage = null, type = "create") {
   if (message.author.id != LOG_PERSON_ID) return;
 
   const channel = client.channels.cache.get(LOG_ROOM_ID);
-  if (type === "delete" && message.embeds.length > 0) {
+  if (type === "delete") {
     console.log(
     message,
     oldMessage,
