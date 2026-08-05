@@ -5,8 +5,8 @@ import { client } from "../client.js";
 export async function createMessage(interaction) {
   const message = interaction.options.getString("message");
 
-  const channel = client.channels.fetch.get(LOG_ROOM_ID);
-  const target = client.users.fetch.get(LOG_PERSON_ID);
+  const channel = client.channels.fetch(LOG_ROOM_ID);
+  const target = client.users.fetch(LOG_PERSON_ID);
     
   const embed = new EmbedBuilder()
     .setColor(0x00ff00)
