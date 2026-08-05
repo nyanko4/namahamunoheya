@@ -83,7 +83,7 @@ const slashCommands = [
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator);
     .addStringOption((option) =>
       option
-        .setName("コメント")
+        .setName("message")
         .setDescription("捏造内容")
         .setRequired(true))
 ].map(cmd => cmd.toJSON());
