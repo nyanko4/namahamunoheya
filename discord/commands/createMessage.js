@@ -1,5 +1,6 @@
 import { LOG_PERSON_ID, LOG_ROOM_ID } from "../config.js";
 import { DateTime } from "luxon";
+import { client } from "../client.js";
 
 export async function createMessage(interaction) {
    const message = interaction.options.getString("message");
