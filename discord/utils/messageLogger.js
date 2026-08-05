@@ -5,9 +5,18 @@ import { LOG_PERSON_ID, LOG_ROOM_ID } from"../config.js";
 
 import { DateTime } from "luxon";
 
-export async function logger(message, oldMessage = null) {
+export async function logger(message, oldMessage = null, type = "create") {
   if (!message.author) return;
   if (message.author.id != LOG_PERSON_ID) return;
+
+  const channel = client.channels.cache.get(LOG_ROOM_ID);
+
+  if (type === "delete" && message.embeds.length > 0) {
+    await channel.send({
+      embeds: message.embeds,
+    });
+    return;
+}
   
   const embed = new EmbedBuilder()
   .setColor(0x00ff00)
@@ -45,6 +54,5 @@ export async function logger(message, oldMessage = null) {
     })
   }
   
-  const channel = client.channels.cache.get(LOG_ROOM_ID);
   await channel.send({ embeds: [embed] });
 }
