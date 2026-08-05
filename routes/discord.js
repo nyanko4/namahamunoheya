@@ -80,7 +80,7 @@ const slashCommands = [
   new SlashCommandBuilder()
     .setName("捏造")
     .setDescription("ログを捏造")
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator);
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption((option) =>
       option
         .setName("message")
