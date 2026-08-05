@@ -100,11 +100,13 @@ client.once(Events.ClientReady, () => {
 import {
   handleMessageCreate,
   handleInteractionCreate,
-  handleMessageUpdate
+  handleMessageUpdate,
+  handleMessageDelete
 } from "../discord/modules/events.js";
 
 client.on(Events.MessageCreate,　handleMessageCreate);
 client.on(Events.InteractionCreate, handleInteractionCreate);
 client.on(Events.MessageUpdate, handleMessageUpdate);
+client.on(Events.MessageDelete, handleMessageDelete);
 
 client.login(process.env.DISCORD_APITOKEN);
