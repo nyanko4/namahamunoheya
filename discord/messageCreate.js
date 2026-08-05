@@ -1,6 +1,7 @@
 import { executeCommand } from "../discord/modules/commands.js";
 import { logger } from "../discord/modules/utils.js";
 
+import { LOG_ROOM_ID } from"./config.js";
 import { debugFlag } from "../discord/commands/debug.js";
 
 export async function handleMessageCreate(message) {
