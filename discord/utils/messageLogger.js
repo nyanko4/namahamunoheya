@@ -5,23 +5,24 @@ import { LOG_PERSON_ID, LOG_ROOM_ID } from"../config.js";
 
 import { DateTime } from "luxon";
 
-export async function logger(message, oldMessage = null, type = "create") {
+export async function logger(message, oldMessage = null, type) {
   if (!message.author) return;
   if (message.author.id != LOG_PERSON_ID) return;
 
   const channel = client.channels.cache.get(LOG_ROOM_ID);
-  if (type === "delete") {
+  if (type == "delete") {
     console.log(
     message,
     oldMessage,
     type,
     message.embeds[0]
     )
+    
     await channel.send({
       embeds: message.embeds,
     });
     return;
-}
+  }
   
   const embed = new EmbedBuilder()
   .setColor(0x00ff00)
