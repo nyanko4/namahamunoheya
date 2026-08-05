@@ -9,6 +9,8 @@ export async function handleMessageCreate(message) {
   if (debugFlag) {
     console.log(message);
   }
+
+  if (message.channelId == LOG_ROOM_ID) return;
   
   console.log(`発言者:${message.author.username}\nメッセージ:${message.content}`);
 
