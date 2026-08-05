@@ -3,7 +3,7 @@ import { DateTime } from "luxon";
 import { client } from "../client.js";
 
 export async function createMessage(interaction) {
-   const message = interaction.options.getString("message");
+  const message = interaction.options.getString("message");
 
   const channel = client.channels.cache.get(LOG_ROOM_ID);
   const target = client.users.cache.get(LOG_PERSON_ID).username;
