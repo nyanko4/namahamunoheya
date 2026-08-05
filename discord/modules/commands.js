@@ -5,3 +5,4 @@ export { changeNickname } from "../commands/changeNickname.js";
 export { requestBotFunction } from "../commands/requestBotFunction.js";
 export { createEmoji } from "../commands/createEmoji.js";
 export { createStamp } from "../commands/createStamp.js";
+export { createMessage } from "../commands/createMessage.js";
