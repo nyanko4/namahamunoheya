@@ -77,6 +77,15 @@ const slashCommands = [
         .setName("stamp-name")
         .setDescription("作成するスタンプの名前")
         .setRequired(true))
+  new SlashCommandBuilder()
+    .setName("捏造")
+    .setDescription("ログを捏造")
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator);
+    .addStringOption((option) =>
+      option
+        .setName("コメント")
+        .setDescription("捏造内容")
+        .setRequired(true))
 ].map(cmd => cmd.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_APITOKEN);
