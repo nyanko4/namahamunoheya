@@ -7,15 +7,18 @@ import { DateTime } from "luxon";
 
 export async function logger(message, oldMessage, type) {
   if (!message.author) return;
-  if (message.author.id != LOG_PERSON_ID && type != "delete") return;
 
   const channel = client.channels.cache.get(LOG_ROOM_ID);
+  
   if (type == "delete") {
+    console.log(message.embeds);
     await channel.send({
       embeds: message.embeds,
     });
     return;
   }
+
+  if (message.author.id != LOG_PERSON_ID) return;
 
   const embed = new EmbedBuilder()
   .setColor(0x00ff00)
