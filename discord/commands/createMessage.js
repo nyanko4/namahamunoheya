@@ -5,12 +5,12 @@ import { client } from "../client.js";
 export async function createMessage(interaction) {
   const message = interaction.options.getString("message");
 
-  const channel = client.channels.cache.get(LOG_ROOM_ID);
-  const target = client.users.cache.get(LOG_PERSON_ID).username;
+  const channel = client.channels.fetch.get(LOG_ROOM_ID);
+  const target = client.users.fetch.get(LOG_PERSON_ID);
     
   const embed = new EmbedBuilder()
     .setColor(0x00ff00)
-    .setTitle(target)
+    .setTitle(target.username)
     .addFields({ name: "messageLink", value: "エラーにより取得できませんでした" })
 
    const toJST = (ms) =>
