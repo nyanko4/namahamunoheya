@@ -5,5 +5,5 @@ export async function handleMessageUpdate(oldMessage, newMessage) {
       await newMessage.fetch();
     }
   
-  await logger(newMessage, oldMessage);
+  await logger(newMessage, oldMessage, "update");
 }
