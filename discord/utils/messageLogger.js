@@ -5,7 +5,7 @@ import { LOG_PERSON_ID, LOG_ROOM_ID } from"../config.js";
 
 import { DateTime } from "luxon";
 
-export async function logger(message, oldMessage = null, isDelete = false) {
+export async function logger(message, oldMessage = null) {
   if (!message.author) return;
   if (message.author.id != LOG_PERSON_ID) return;
   
@@ -21,12 +21,6 @@ export async function logger(message, oldMessage = null, isDelete = false) {
     embed.addFields(
       { name: "編集前コメント", value: oldMessage.content },
       { name: "時刻", value: toJST(oldMessage.createdTimestamp) }
-    )
-  }
-
-  if (isDelete) {
-    embed.addFields(
-      { name: "削除", value: "されたコメント" }
     )
   }
 
