@@ -240,7 +240,7 @@ def reverseWhiteMake(name, id, content, icon):
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
+@app.route("/quote", methods=["GET"])
 def main():
     type = request.args.get("type")
     name = request.args.get("name") or "SAMPLE",
