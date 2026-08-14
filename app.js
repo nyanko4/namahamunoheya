@@ -4,3 +4,4 @@ import { startDailyTask } from "./cron/dailyTask.js";
 
   import "./server.js";
   import "./routes/discord.js";
+  import "./quote/main.py";
