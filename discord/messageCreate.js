@@ -9,6 +9,7 @@ export async function handleMessageCreate(message) {
   
   if (debugFlag) {
     console.log(message);
+    console.log(message.author.displayAvatarURL());
   }
 
   if (message.channelId == LOG_ROOM_ID) return;
