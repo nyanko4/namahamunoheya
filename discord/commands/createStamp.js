@@ -10,10 +10,6 @@ export async function createStamp(interaction) {
 
   const stampUrl = stampImage.attachment;
 
-  if (!/[\w]+/g.test(stampName)) {
-    return "スタンプの名前は英数字と_のみ使用可能です";
-  };
-
   await interaction.guild.stickers.create({
     file: stampUrl,
     name: stampName,
