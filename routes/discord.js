@@ -85,6 +85,14 @@ const slashCommands = [
       option
         .setName("message")
         .setDescription("捏造内容")
+        .setRequired(true)),
+  new SlashCommandBuilder()
+    .setName("create-quote")
+    .setDescription("引用を作成")
+    .addStringOption((option) =>
+      option
+        .setName("content")
+        .setDescription("メッセージ")
         .setRequired(true))
 ].map(cmd => cmd.toJSON());
 
