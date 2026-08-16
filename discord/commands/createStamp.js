@@ -1,12 +1,12 @@
-const stampContentType = ["png", "gif"];
-
 export async function createStamp(interaction) {
   const stampImage = interaction.options.getAttachment("stamp-image");
   const stampName = interaction.options.getString('stamp-name');
 
-	if (!stampImage.contentType.toLowerCase().includes(stampContentType)) {
-		return "画像形式はpng,gifのみ使用可能です";
-  };
+	const allowedContentTypes = ["image/png", "image/gif"];
+
+	if (!stampImage?.contentType || !allowedContentTypes.includes(stampImage.contentType.toLowerCase())) {
+	  return "画像形式はpng,gifのみ使用可能です";
+	}
 
   const stampUrl = stampImage.attachment;
 
