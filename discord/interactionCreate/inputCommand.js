@@ -34,5 +34,5 @@ export async function handleInputCommand(interaction) {
     result = await createMessage(interaction);
   }
   
-  await interaction.editReply({ content: result });
+  await interaction.editReply(result);
 }
