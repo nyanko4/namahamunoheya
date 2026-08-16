@@ -1,7 +1,7 @@
 // slashCommandを制御する関数
 
 import { MessageFlags } from "discord.js";
-import { omikuji, changeNickname, requestBotFunction, createEmoji, createStamp, createMessage } from "../modules/commands.js";
+import { omikuji, changeNickname, requestBotFunction, createEmoji, createStamp, createMessage, createQuote } from "../modules/commands.js";
 
 export async function handleInputCommand(interaction) {
   let result = "";
