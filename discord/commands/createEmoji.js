@@ -1,11 +1,19 @@
-const emojiContentType = ["jpg", "jpeg", "gif", "webp", "avif"];
-
 export async function createEmoji(interaction) {
   const emojiImage = interaction.options.getAttachment("emoji-image");
   const emojiName = interaction.options.getString("emoji-name");
 
-	if (!emojiImage.contentType.toLowerCase().includes(emojiContentType)) {
-		return "画像形式はjpeg,gif,webp,avifのみ使用可能です";
+	const emojiContentType = [
+		'image/jpeg',
+		'image/gif',
+		'image/webp',
+		'image/avif'
+	];
+	
+	if (
+		!emojiImage.contentType ||
+		!emojiContentType.includes(emojiImage.contentType.toLowerCase())
+	) {
+		return '画像形式はjpeg,gif,webp,avifのみ使用可能です';
 	}
 
   if (!/[\w]+/g.test(emojiName)) {
