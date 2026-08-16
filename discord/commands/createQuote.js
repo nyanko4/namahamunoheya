@@ -1,6 +1,7 @@
 import { AttachmentBuilder } from "discord.js";
-import { client } from "../client.js";
 import { MiQ } from 'makeitaquote'
+import { client } from "../client.js";
+import { LOG_PERSON_ID } from "../config.js";
 
 export async function createQuote(interaction) {
 	const content = interaction.options.getString("content");
