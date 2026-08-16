@@ -28,7 +28,7 @@ export async function requestBotFunction(interaction) {
     components: [button]
   });
   
-  return "要望を送信しました";
+  return { content: "要望を送信しました" };
 }
 
 async function requestCommand(interaction) {
