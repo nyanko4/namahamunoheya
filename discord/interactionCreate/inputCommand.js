@@ -33,6 +33,10 @@ export async function handleInputCommand(interaction) {
   if (interaction.commandName == "捏造") {
     result = await createMessage(interaction);
   }
+
+  if (interaction.commandName == "create-quote") {
+    result = await createQuote(interaction);
+  }
   
   await interaction.editReply(result);
 }
