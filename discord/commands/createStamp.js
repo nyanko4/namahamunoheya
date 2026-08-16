@@ -5,7 +5,7 @@ export async function createStamp(interaction) {
 	const allowedContentTypes = ["image/png", "image/gif"];
 
 	if (!stampImage?.contentType || !allowedContentTypes.includes(stampImage.contentType.toLowerCase())) {
-	  return "画像形式はpng,gifのみ使用可能です";
+	  return { content: "画像形式はpng,gifのみ使用可能です" };
 	}
 
   const stampUrl = stampImage.attachment;
@@ -16,5 +16,5 @@ export async function createStamp(interaction) {
     tags: "bot"
   });
 
-  return "作成しました";
+  return { content: "作成しました" };
 }
