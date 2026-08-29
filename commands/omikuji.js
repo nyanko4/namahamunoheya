@@ -25,7 +25,7 @@ function getOmikujiResult() {
 function getId(chatType, data) {
   if (chatType === "discord") return {
     userId: data.author?.id ?? data.user?.id,
-    serverId: data.channelId
+    serverId: data.guildId
     };
   
 
