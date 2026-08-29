@@ -36,9 +36,9 @@ function getId(chatType, data) {
 }
 
 //おみくじ
-export async function omikuji(data, chatType) {
+export async function omikuji(chatData, chatType) {
     try {
-      const { userId, serverId } = getId(chatType, data);
+      const { userId, serverId } = getId(chatType, chatData);
       const { data, error } = await supabase
         .from(`${chatType}Omikuji`)
         .select("id")
