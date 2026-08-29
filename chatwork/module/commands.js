@@ -3,8 +3,14 @@ import { omikuji } from "../../commands/omikuji.js";
 
 export async function commands(body, messageId, roomId, accountId) {
   let result = "";
+  const data = {
+    body,
+    messageId,
+    roomId,
+    accountId
+  }
   if (body.match(/^おみくじ$/)) {
-    result = await omikuji(accountId, "chatwork");
+    result = await omikuji(data, "chatwork");
   }
 
   if (result.trim() !== "") {
