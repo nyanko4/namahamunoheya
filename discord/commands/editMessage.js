@@ -1,5 +1,3 @@
-import 
-
 export async function editMessage(interaction) {
   if (!interaction.targetMessage.author.bot) return "bot以外のコメントは編集できません";
 
