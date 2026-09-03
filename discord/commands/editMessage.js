@@ -3,7 +3,7 @@ import { ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder } from "di
 export async function editMessage(interaction) {
   if (!interaction.targetMessage.author.bot) return "bot以外のコメントは編集できません";
 
-  const editContentModal = new modalBuilder()
+  const editContentModal = new ModalBuilder()
     .setCustomId(`edit-message:${interaction.targetMessage.id}`)
     .setTitle("編集")
     .addLabelComponents(
