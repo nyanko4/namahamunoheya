@@ -15,6 +15,7 @@ export async function editMessage(interaction) {
             .setCustomId("editText")
             .setRequired(true)
             .setStyle(TextInputStyle.Short)
+            .setValue(interaction.targetMessage.content || "")
         )
     )
 
