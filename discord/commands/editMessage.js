@@ -1,7 +1,24 @@
+import { ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder } from "discord.js";
+
 export async function editMessage(interaction) {
   if (!interaction.targetMessage.author.bot) return "bot以外のコメントは編集できません";
 
-  await interaction.targetMessage.edit(interaction.context);
+  const editContentModal = new modalBuilder()
+    .setCustomId("editContent")
+    .setTitle("編集")
+    .addLabelComponents(
+      new LabelBuilder()
+        .setLabel("メッセージ")
+        .setDescription("変更したいメッセージを入力してください")
+        .setTextInputComponent(
+          new TextInputBuilder()
+            .setCustomId("editText")
+            .setRequired(true)
+            .setStyle(TextInputStyle.Short)
+        )
+    )
 
-  return "編集しました";
+  await interaction.showModal(editContentModal)
+  
+  return;
 }
