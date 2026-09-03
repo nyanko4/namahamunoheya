@@ -1,8 +1,8 @@
 import { editMessage } from "../modules/modal.js";
 
-const modalFunctions = [
-  editMessage
-]
+const modalFunctions = {
+  "edit-message": editMessage
+}
 
 export async function handleModal(interaction) {
   if (!interaction.customId) return;
