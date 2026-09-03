@@ -7,6 +7,6 @@ export async function handleInteractionCreate(interaction) {
     if (interaction.isContextMenuCommand()) return await handleContextMenuCommand(interaction);
     if (interaction.isModalSubmit()) return await handleModal(interaction);
   } catch (error) {
-    console.error("ContextMenuError", error.response?.data || error.message, error.stack)
+    console.error("InteractionCreateError", error.response?.data || error.message, error.stack)
   }
 }
