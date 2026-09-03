@@ -111,8 +111,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_APITOKEN);
   try {
     await rest.put(
       Routes.applicationCommands(process.env.APP_ID),
-      { body: slashCommands },
-      { body: contextMenuCommands }
+      { body: [...slashCommands, ...contextMenuCommands] }
     );
     console.log("Slash commands and ContextMenu commands registered");
   } catch (err) {
