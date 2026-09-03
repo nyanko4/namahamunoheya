@@ -12,5 +12,7 @@ export async function handleContextMenuCommand(interaction) {
     result = await editMessage(interaction);
   }
 
+  if (result == "") return;
+  
   await interaction.editReply(result);
 }
