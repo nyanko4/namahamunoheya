@@ -8,7 +8,7 @@ export async function handleContextMenuCommand(interaction) {
     flags: MessageFlags.Ephemeral
   });
   
-  if (commandName == "message-edit") {
+  if (interaction.commandName == "message-edit") {
     result = await editMessage(interaction);
   }
 
