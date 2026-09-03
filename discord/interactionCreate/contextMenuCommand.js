@@ -1,4 +1,5 @@
 import { MessageFlags } from "discord.js";
+import { editMessage } from "../modules/commands.js";
 
 export async function handleContextMenuCommand(interaction) {
   let result = "";
