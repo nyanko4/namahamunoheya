@@ -11,8 +11,6 @@ export async function handleContextMenuCommand(interaction) {
   if (interaction.commandName == "message-edit") {
     result = await editMessage(interaction);
   }
-
-  if (result == "") return;
   
   await interaction.editReply(result);
 }
