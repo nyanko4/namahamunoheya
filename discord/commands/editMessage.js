@@ -4,7 +4,7 @@ export async function editMessage(interaction) {
   if (!interaction.targetMessage.author.bot) return "bot以外のコメントは編集できません";
 
   const editContentModal = new modalBuilder()
-    .setCustomId("editContent")
+    .setCustomId("editMessage")
     .setTitle("編集")
     .addLabelComponents(
       new LabelBuilder()
