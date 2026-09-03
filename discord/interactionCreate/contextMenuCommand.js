@@ -9,7 +9,9 @@ export async function handleContextMenuCommand(interaction) {
   });
   
   if (interaction.commandName == "message-edit") {
-    result = await editMessage(interaction);
+    await interaction.deleteReply();
+    await editMessage(interaction);
+    return;
   }
 
   if (result == "") {
