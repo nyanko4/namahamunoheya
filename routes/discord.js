@@ -2,6 +2,8 @@ import {
   REST,
   Routes,
   SlashCommandBuilder,
+  ContextMenuCommandBuilder,
+  ApplicationCommandType,
   PermissionFlagsBits,
   Events,
 } from "discord.js";
@@ -96,15 +98,23 @@ const slashCommands = [
         .setRequired(true))
 ].map(cmd => cmd.toJSON());
 
+const contextMenuCommands = [
+  new ContextMenuCommandBuilder()
+    .setName("message-edit")
+    .setType(ApplicationCommandType.Message)
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+].map(cmd => cmd.toJSON());
+
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_APITOKEN);
 
 (async () => {
   try {
     await rest.put(
       Routes.applicationCommands(process.env.APP_ID),
-      { body: slashCommands }
+      { body: slashCommands },
+      { body: contextMenuCommands }
     );
-    console.log("Slash commands registered");
+    console.log("Slash commands and ContextMenu commands registered");
   } catch (err) {
     console.error(err);
   }
