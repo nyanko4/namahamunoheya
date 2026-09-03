@@ -7,7 +7,9 @@ const modalFunctions = [
 export async function handleModal(interaction) {
   if (!interaction.customId) return;
 
-  const handler = modalFunctions[interaction.customId];
+  const index = interaction.customId.includes(":") ? interaction.customId.split(":")[0] : interaction.customId;
+
+  const handler = modalFunctions[index];
   if (!handler) return;
 
   await handler(interaction);
