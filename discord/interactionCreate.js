@@ -1,4 +1,4 @@
-import { handleInputCommand, handleButton, handleContextMenuCommand } from "./modules/events.js";
+import { handleInputCommand, handleButton, handleContextMenuCommand, handleModal } from "./modules/events.js";
 
 export async function handleInteractionCreate(interaction) {
   try {
