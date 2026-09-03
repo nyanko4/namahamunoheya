@@ -3,16 +3,15 @@ import { editMessage } from "../modules/commands.js";
 
 export async function handleContextMenuCommand(interaction) {
   let result = "";
+  
+  if (interaction.commandName == "message-edit") {
+    await editMessage(interaction);
+    return;
+  }
 
   await interaction.deferReply({
     flags: MessageFlags.Ephemeral
   });
-  
-  if (interaction.commandName == "message-edit") {
-    await interaction.deleteReply();
-    await editMessage(interaction);
-    return;
-  }
 
   if (result == "") {
     await interaction.deleteReply();
