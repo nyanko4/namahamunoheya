@@ -5,6 +5,7 @@ export async function handleInteractionCreate(interaction) {
     if (interaction.isChatInputCommand()) return await handleInputCommand(interaction);
     if (interaction.isButton()) return await handleButton(interaction);
     if (interaction.isContextMenuCommand()) return await handleContextMenuCommand(interaction);
+    if (interaction.isModalSubmit()) return await handleModal(interaction);
   } catch (error) {
     console.error("ContextMenuError", error.response?.data || error.message)
   }
