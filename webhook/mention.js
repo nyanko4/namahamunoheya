@@ -20,6 +20,5 @@ async function mentionWebhook(req, res) {
   }}
     return "ok";
   }
-}
 
 module.exports = mentionWebhook;
