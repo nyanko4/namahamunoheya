@@ -26,11 +26,11 @@ async function messageLogger(body, messageId, roomId, accountId, event, sendtime
     
       try {
         if (isOverLimit) {
-          await sendChatwork("ファイルサイズが大きいため保存されませんでした", logRoomId);
+          await sendchatwork("ファイルサイズが大きいため保存されませんでした", logRoomId);
           return;
         }
     
-        await uploadFileTochatwork(localFilePath, name, logRoomId, "log");
+        await uploadFileToChatwork(localFilePath, name, logRoomId, "log");
     
       } finally {
         await deleteFile(localFilePath);
