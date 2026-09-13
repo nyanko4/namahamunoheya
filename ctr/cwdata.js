@@ -48,6 +48,38 @@ async function getChatworkMembers(roomId) {
   }
 }
 
+async function sendername(accountId, roomId) {
+  const members = await getChatworkMembers(roomId, "bot");
+  if (members) {
+    const sender = members.find((member) => member.account_id === accountId);
+    return sender ? sender.name : "名前を取得できませんでした";
+  }
+  return "名前を取得できませんでした";
+}
+
+async function getFileUrl(body, roomId, tokenType) {
+  try {
+    const match = body.match(/download:(\d+)/);
+    if (!match || !match[1]) throw new Error("getFileId");
+    const fileId = match[1];
+    const response = await axios.get(
+      `https://api.chatwork.com/v2/rooms/${roomId}/files/${fileId}?create_download_url=1`,
+      {
+        headers: {
+          accept: "application/json",
+          "X-ChatWorkToken": CHATWORK_API_TOKEN,
+        },
+      }
+    );
+    const downloadurl = response.data.download_url;
+    const filename = response.data.filename;
+    return { fileurl: downloadurl, filename: filename };
+  } catch (error) {
+    console.error("getFileUrlError:",  error.response?.data || error.message);
+    return false;
+  }
+}
+
 module.exports = {
   isUserAdmin,
   getChatworkMembers,
