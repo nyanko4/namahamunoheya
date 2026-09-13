@@ -83,4 +83,5 @@ async function getFileUrl(body, roomId, tokenType) {
 module.exports = {
   isUserAdmin,
   getChatworkMembers,
+  getFileUrl,
 };
