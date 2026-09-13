@@ -23,6 +23,27 @@ async function sendchatwork(ms, roomId) {
   }
 }
 
+//ファイルを送信
+async function uploadFileToChatwork(filepath, message, roomId, tokenType) {
+  try {
+    const CHATWORK_API_TOKEN = selectChatworkApiToken(tokenType)
+    const formData = new FormData();
+    formData.append("file", fs.createReadStream(filepath));
+    formData.append("message", message);
+  
+    const headers = {
+      ...formData.getHeaders(),
+      "x-chatworktoken": CHATWORK_API_TOKEN,
+    };
+  
+    const uploadUrl = `https://api.chatwork.com/v2/rooms/${roomId}/files`;
+    const response = await axios.post(uploadUrl, formData, { headers });
+    return response.data;
+  } catch (error) {
+    console.error("uploadFileToChatworkError:", error.response?.data || error.message)
+  }
+}
+
 //メッセージを削除
 async function deleteMessages(body, messageId, roomId, accountId) {
   const dlmessageIds = [...body.matchAll(/(?<=to=\d+-)(\d+)/g)].map(
@@ -76,6 +97,7 @@ async function readmessage(roomId, messageId) {
 
 module.exports = {
   sendchatwork,
+  uploadFileToChatwork,
   deleteMessages,
   readmessage,
 };
