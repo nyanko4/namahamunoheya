@@ -26,7 +26,6 @@ async function sendchatwork(ms, roomId) {
 //ファイルを送信
 async function uploadFileToChatwork(filepath, message, roomId, tokenType) {
   try {
-    const CHATWORK_API_TOKEN = selectChatworkApiToken(tokenType)
     const formData = new FormData();
     formData.append("file", fs.createReadStream(filepath));
     formData.append("message", message);
